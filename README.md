@@ -4,6 +4,8 @@
 
 ## `master` 分支基础依赖
 
+- axios
+- pinia
 - sass
 - Element-Plus
 - @element-plus/icons-vue
@@ -15,6 +17,8 @@
 
 > 额外引入flexible.js
 
+- axios
+- pinia
 - sass
 - Element-Plus
 - @element-plus/icons-vue
