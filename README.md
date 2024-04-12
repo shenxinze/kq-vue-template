@@ -4,7 +4,9 @@
 
 ## `master` 分支基础依赖
 
+- sass
 - Element-Plus
+- @element-plus/icons-vue
 - Echarts
 - dayjs
 - autoprefixer
@@ -13,7 +15,9 @@
 
 > 额外引入flexible.js
 
+- sass
 - Element-Plus
+- @element-plus/icons-vue
 - Echarts
 - dayjs
 - autoprefixer
