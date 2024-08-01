@@ -12,6 +12,7 @@
       :defaultConfig="editorConfig"
       :mode="mode"
       @onCreated="handleCreated"
+      @onChange="onChange"
     />
   </div>
 </template>
@@ -32,12 +33,14 @@ const props = withDefaults(
   defineProps<{
     modelValue: string
     readOnly?: boolean
+    disable?: boolean
     mode?: 'default' | 'simple'
     height?: number | string
   }>(),
   {
     modelValue: '',
     readOnly: false,
+    disable: false,
     mode: 'default',
     height: 500
   }
@@ -50,7 +53,9 @@ const editorRef = shallowRef()
 const valueHtml = ref('')
 
 // 模拟 ajax 异步获取内容
-onMounted(() => {})
+onMounted(() => {
+  valueHtml.value = props.modelValue
+})
 
 const toolbarConfig = {
   excludeKeys: [
@@ -59,7 +64,8 @@ const toolbarConfig = {
     'group-video',
     'image',
     'uploadImage',
-    'group-image'
+    'group-image',
+    'codeBlock'
   ]
 }
 const editorConfig = computed(() => {
@@ -72,19 +78,26 @@ const editorConfig = computed(() => {
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {
   const editor = editorRef.value
-  if (editor == null) return
+  if (editor === null) return
   editor.destroy()
 })
 
 const handleCreated = (editor: any) => {
+  editor.focus(true)
+  props.disable && editor.disable()
   editorRef.value = editor // 记录 editor 实例，重要！
 }
 
+const onChange = () => {
+  emit('update:modelValue', valueHtml.value)
+}
+
 watch(
-  () => valueHtml.value,
-  (newValue) => {
-    emit('update:modelValue', newValue)
-  }
+  () => props.modelValue,
+  () => {
+    valueHtml.value = props.modelValue
+  },
+  { immediate: true }
 )
 </script>
 
