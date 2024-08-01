@@ -83,7 +83,6 @@ onBeforeUnmount(() => {
 })
 
 const handleCreated = (editor: any) => {
-  editor.focus(true)
   props.disable && editor.disable()
   editorRef.value = editor // 记录 editor 实例，重要！
 }
