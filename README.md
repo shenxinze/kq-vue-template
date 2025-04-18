@@ -46,7 +46,7 @@ degit https://github.com/shenxinze/kq-vue-template.git
 
 ```sh
 # develop 分支包含可视化配置
-degit https://github.com/shenxinze/kq-vue-template.git#devlop
+degit https://github.com/shenxinze/kq-vue-template.git#develop
 ```
 
 
