@@ -15,14 +15,14 @@
     "axios": "^1.6.8",
     "dayjs": "^1.11.10",
     "echarts": "^5.5.0",
-    "element-plus": "^2.6.2",
+    "element-plus": "^2.8.4",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@types/postcss-pxtorem": "^6.0.3",
     "@types/node": "^20.12.2",
+    "@types/postcss-pxtorem": "^6.0.3",
     "@vitejs/plugin-vue": "^5.0.4",
     "postcss-pxtorem": "^6.1.0",
     "sass": "1.72.0",
