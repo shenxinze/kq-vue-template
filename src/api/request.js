@@ -1,16 +1,9 @@
-import axios, { InternalAxiosRequestConfig, AxiosResponse } from 'axios'
+import axios from 'axios'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
+
 const router = useRouter()
 
-declare module 'axios' {
-  interface AxiosResponse<T = any> {
-    errorNo: number
-    errorMsg: string
-    response: any
-  }
-  export function create(config?: AxiosRequestConfig): AxiosInstance
-}
 // 创建 axios 实例
 const service = axios.create({
   timeout: 50000,
@@ -19,21 +12,21 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
+  (config) => {
     const token = '' // todo
     if (token) {
       config.headers.Authorization = token
     }
     return config
   },
-  (error: any) => {
+  (error) => {
     return Promise.reject(error)
   }
 )
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse) => {
+  (response) => {
     const { status } = response
     // 登录成功
     if (status === 200) {
@@ -42,7 +35,7 @@ service.interceptors.response.use(
     ElMessage.error('系统出错')
     return Promise.reject(new Error('Error'))
   },
-  (error: any) => {
+  (error) => {
     if (error.response.data) {
       const { status, statusText } = error.response
       // token 过期，跳转登录页

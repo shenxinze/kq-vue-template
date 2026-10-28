@@ -1,54 +1,38 @@
-# kq-vue-template
+# Vue 3 + Vite 无 TypeScript 模板
 
-一个 `Vue 3 + TypeScript + Vite` 模板，减少公司重复创建项目，配置项目的步骤
+这是一个基于 Vue 3 和 Vite 的前端项目模板，使用 JavaScript 开发，不包含 TypeScript 配置或源码。
 
-## `master` 分支基础依赖
+## 技术栈
 
-- axios
-- pinia
-- sass
-- Element-Plus
-- @element-plus/icons-vue
-- Echarts
-- dayjs
-- autoprefixer
+- Vue 3
+- Vite
+- Vue Router
+- Pinia
+- Element Plus
+- SCSS
 
-## `develop` 分支基础依赖
+## 开发
 
-> 额外引入flexible.js
+安装依赖：
 
-- axios
-- pinia
-- sass
-- Element-Plus
-- @element-plus/icons-vue
-- Echarts
-- dayjs
-- autoprefixer
-
-+ postcss-pxtorem
-+ amfe-flexible
-
-## degit安装
-
-```sh
-npm install -g degit
+```bash
+npm install
 ```
 
-##
+启动开发服务器：
 
-## 使用方法
-
-```sh
-# 默认克隆 master 分支，master 分支不包含可视化配置
-degit https://github.com/shenxinze/kq-vue-template.git
+```bash
+npm run dev
 ```
 
-```sh
-# develop 分支包含可视化配置
-degit https://github.com/shenxinze/kq-vue-template.git#devlop
+构建生产版本：
+
+```bash
+npm run build
 ```
 
+预览生产构建：
 
-
-
+```bash
+npm run preview
+```

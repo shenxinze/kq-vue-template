@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
-export const constantRoutes: RouteRecordRaw[] = [
+export const constantRoutes = [
   {
     path: '/',
     name: 'home',
@@ -10,7 +10,7 @@ export const constantRoutes: RouteRecordRaw[] = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: constantRoutes as RouteRecordRaw[],
+  routes: constantRoutes,
   // 刷新时 滚动条位置还原
   scrollBehavior: () => ({ left: 0, top: 0 })
 })
